@@ -70,39 +70,51 @@ body, html {
 <div class="w3-container" style="padding:128px 16px" id="About Me">
   <h3 class="w3-center">About Me</h3>
   <p class="w3-center w3-large">Important Info</p>
-  <div class="w3-row-padding w3-center" style="margin-top:64px">
-    <div class="w3-quarter">
-      <i class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center"></i>
-      <p class="w3-large">Recent Graduate</p>
-      <p> I graduated college in 2024 from Virginia Tech where I got my bachelors.</p>
+  <div class="w3-row" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 32px;">
+    <div class="w3-quarter" style="flex: 1; min-width: 250px; max-width: 300px; text-align: center;">
+      <i class="fa fa-cog w3-margin-bottom w3-jumbo"></i>
+      <p class="w3-large">Introduction</p>
+      <p>I'm Joshua Murphy, a software/firmware engineer with a passion for embedded programming and systems programming.</p>
     </div>
-    <div class="w3-quarter">
+    <div class="w3-quarter" style="flex: 1; min-width: 250px; max-width: 300px; text-align: center;">
+      <i class="fa fa-desktop w3-margin-bottom w3-jumbo"></i>
+      <p class="w3-large">Education</p>
+      <p>I graduated from Virginia Tech in 2024 with a Bachelor's degree in Computer Science, where I developed a strong foundation in software development and algorithm design.</p>
+    </div>
+    <div class="w3-quarter" style="flex: 1; min-width: 250px; max-width: 300px; text-align: center;">
       <i class="fa fa-heart w3-margin-bottom w3-jumbo"></i>
       <p class="w3-large">Passion</p>
-      <p> I recently found a passion for embedded programming and OS development. Outside of that I enjoy reading and playing soccer</p>
+      <p>Apart from my work in technology, I'm an avid reader with a passion for exploring diverse genres, from science fiction to non-fiction. I also love staying active through soccer and going to the gym.</p>
     </div>
-    <div class="w3-quarter">
+    <div class="w3-quarter" style="flex: 1; min-width: 250px; max-width: 300px; text-align: center;">
       <i class="fa fa-diamond w3-margin-bottom w3-jumbo"></i>
-      <p class="w3-large">Design</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-    </div>
-    <div class="w3-quarter">
-      <i class="fa fa-cog w3-margin-bottom w3-jumbo"></i>
-      <p class="w3-large">Support</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+      <p class="w3-large">Skills</p>
+      <p>Proficient in Java, Python, C, and C++, I have a strong background in algorithm development, effective problem-solving, and debugging. Additionally, I have experience with Linux, operating system development, and am skilled in using Git for version control.</p>
     </div>
   </div>
 </div>
 
 <!-- Internship Section -->
 <div class="w3-container w3-light-grey" style="padding:128px 16px">
-  <div class="w3-row-padding">
-    <div class="w3-col m6">
-      <h3>Internships</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod<br>tempor incididunt ut labore et dolore.</p>
-    </div>
-    <div class="w3-col m6">
-    </div>
+  <h3>Internships</h3>
+  <div style="margin-top: 16px;">
+    <h4>ONWARD MEDICAL S.A., LAUSANNE, SWITZERLAND <br>JULY 2023 – AUGUST 2023</h4>
+    <p><strong>Summer Intern</strong></p>
+    <ul>
+      <li>Worked on a novel neural modulation system that helps people regain function after spinal cord injury. The system consists of stimulation electronics and a user interface controlled by two STM32 microprocessors.</li>
+      <li>Major accomplishments included configuration of the NRF-52 microcontroller’s Bluetooth module to implement a lock-out feature while the device was stimulating, programming of the LED matrix driver for the Embos RTOS, and adding new messages to the communication stack for inter-processor communication.</li>
+      <li>While working on these features, reconfiguration of the necessary makefiles and rewriting unit tests was a required step.</li>
+      <li>This was all accomplished using C++, Python for testing, and collaboration was achieved with Git and Jira.</li>
+    </ul>
+  </div>
+
+  <div style="margin-top: 32px;">
+    <h4>ONWARD MEDICAL S.A., LAUSANNE, SWITZERLAND <br>JULY 2022 – AUGUST 2022</h4>
+    <p><strong>Summer Intern</strong></p>
+    <ul>
+      <li>Designed and deployed an innovative stochastic stimulation scheduler permitting pulse collision avoidance in neural modulation systems, enabling simultaneous, multi-frequency output on distinct electrodes.</li>
+      <li>Created a simulation in Python which the algorithm could run and facilitated the visualization of results that were subsequently used by the inventor to file for a multinational patent.</li>
+    </ul>
   </div>
 </div>
 
@@ -158,10 +170,10 @@ body, html {
   <div style="margin-top:48px">
     <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> Lousiana, US</p>
     <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Phone: +1 214-708-8027</p>
-    <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: Jmmurphy2020@mail.com</p>
+    <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: Jmmurphy2020@gmail.com</p>
     <br>
     <!-- Image of location/map -->
-    <img src="/Personal_Website/sources/pexels-timson-foox-776012-2182863.jpg" class="w3-image w3-greyscale" style="width:100%;margin-top:48px">
+    <img src="/Personal_Website/sources/pexels-timson-foox-776012-2182863.jpg" class="w3-image w3-greyscale" style="width:100%;margin-bottom:48px">
   </div>
 </div>
 
