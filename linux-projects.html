@@ -26,16 +26,66 @@
         <a href="index.html">Back to Home</a> <!-- Link to the main page -->
     </div>
 
-    <div class="w3-container" style="padding:128px 16px">
-        <h3>Linux Projects</h3>
-        <p>Here are some of the Linux projects I've worked on:</p>
-        <!-- Add your Linux project details here -->
-        <ul>
-            <li>Project 1: Description...</li>
-            <li>Project 2: Description...</li>
-            <li>Project 3: Description...</li>
-        </ul>
-    </div>
+    <!-- Linux from Scratch Section -->
+<div class="w3-container" style="padding:128px 16px" id="linux-from-scratch">
+    <h3 class="w3-center">Linux from Scratch</h3>
+    <p class="w3-center w3-large">Documenting the process of building a custom Linux distribution</p>
+  
+    <h4>Introduction</h4>
+    <p>
+      This report documents the process and challenges encountered while creating a custom Linux distribution, following the guidelines provided in the Linux from Scratch (LFS) Book version 12.2. Additional resources, including YouTube tutorials from Titus Tech Talks, were also consulted. Both sources are highly recommended for further reading or viewing, and they can be accessed via the following links:
+    </p>
+    <ul>
+      <li><a href="https://www.linuxfromscratch.org/lfs/downloads/stable/LFS-12.2-SYSV-BOOK.pdf" target="_blank">LFS Book 12.2</a></li>
+      <li><a href="https://youtu.be/oV541sgHKGo?si=wPfYDn73sbgJyKL9" target="_blank">Titus Tech Talks - LFS YouTube Tutorial</a></li>
+    </ul>
+    <p>
+      While these sources provide comprehensive guidance, this document highlights key insights and solutions to challenges I encountered during the process. The end goal is to create a basic Linux distribution so that I can better undersand tools such as the Yocto Project, but this may also serve as a reference for others pursuing a similar endeavor.
+    </p>
+  
+    <h5>Environment</h5>
+    <p>
+      The initial phase involved setting up the working environment for building the Linux distribution. I chose VMware Workstation Pro as the virtualization platform due to its superior performance compared to VirtualBox. The base distribution selected for this project was Ubuntu 24.04.1, chosen primarily for familiarity.
+    </p>
+    <p>
+      In contrast to the LFS guidelines in Chapter 2, I opted to add an additional virtual disk (vdisk) to the virtual machine for flexibility and ease of management. This deviation from the recommended setup will be further discussed in the next section.
+    </p>
+  
+    <h4>Creating the Linux Distribution</h4>
+    <p>
+      Following the steps outlined in the LFS book, the initial task was ensuring all required packages were installed and up-to-date, as specified in Chapter 2.2.2 of LFS. With the environment prepared, the next step involved partitioning the disk for the new Linux distribution.
+    </p>
+    <p>
+      As mentioned in the setup section, I added a new disk (referred to as <code>sdb</code> going forward). Instead of partitioning the existing disk as detailed in LFS, I configured this new disk, <code>sdb</code>, to serve as the storage space for the new distribution. The configuration steps included:
+    </p>
+    <ul>
+      <li>Partitioning <code>sdb</code> using cfdisk for use with the Linux file system</li>
+      <li>Make the filesystem using: <code>mkfs -v -t ext4 /dev/sdb2 </code></li>
+      <li>Creating the mounting point using: <code>mount -v -t ext4 /dev/sdb2 /mnt/lfs</code></li>
+    </ul>
+
+    <p>
+       It is important to note that due to working in a virtual enviroment and certain system configurations the mount point will unmount when powering off the system. 
+        As, a result I created a bash script that will remount the disk to the host system and perform other necessary configs for creating LFS.
+
+        We then get the neccessary packages and patches for creating our new linux distro, which was thankfully provided for us in a tarball. Using the wget command I was able to download all packages into 
+        a source directory. With this done we can then do the final preperations for the build. We first populate the file system using the following:
+
+        <br>
+
+        <code>
+            mkdir -pv $LFS/{etc,var} $LFS/usr/{bin,lib,sbin}
+            for i in bin lib sbin; do
+            ln -sv usr/$i $LFS/$i
+            done
+            case $(uname -m) in
+            x86_64) mkdir -pv $LFS/lib64 ;;
+            esac
+        </code>
+    </p>
+
+
+  </div>
     
     <footer class="w3-center w3-black w3-padding-64">
         <a href="index.html" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
